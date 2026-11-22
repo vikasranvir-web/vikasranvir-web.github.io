@@ -81,7 +81,7 @@ h1 em{font-style:italic;font-weight:400;color:var(--accent)}
 .portrait .ring::after{content:"";position:absolute;top:8%;left:12%;width:12px;height:12px;border-radius:50%;background:var(--accent2);box-shadow:0 0 18px var(--accent2)}
 .portrait .disc{position:absolute;inset:0;border-radius:50%;overflow:hidden;background:radial-gradient(circle at 35% 30%,var(--card),var(--bg2));border:1px solid var(--line);display:grid;place-items:center;box-shadow:0 30px 80px -30px var(--glow)}
 .portrait .mono{font-family:var(--serif);font-size:96px;font-weight:800;color:var(--accent);letter-spacing:-.05em}
-.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%}
 .tag-float{position:absolute;font-family:var(--mono);font-size:12px;background:var(--card);border:1px solid var(--line);padding:6px 10px;border-radius:8px;white-space:nowrap;box-shadow:0 8px 24px -12px rgba(0,0,0,.25)}
 .tag-float.a{top:6%;right:-6%}.tag-float.b{bottom:12%;left:-10%}.tag-float.c{bottom:-4%;right:4%}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -196,7 +196,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.reveal,.t-item{opacity:1;transform:none}}
+
 </style>
 </head>
 <body>
@@ -218,7 +218,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     </div>
   </div>
   <div class="sheet" id="sheet">
-    <a href="#about">§1 About</a><a href="#journey">§2 Journey</a><a href="#methods">§3 Methods</a><a href="#papers">§4 Papers</a><a href="#field">§5 Field notes</a><a href="#contact">§6 Contact</a>
+    <a href="#about">About</a><a href="#journey">Journey</a><a href="#methods">Methods</a><a href="#papers">Papers</a><a href="#field">Field notes</a><a href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -251,10 +251,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="scroll-hint">scroll ↓</div>
 </header>
 
-<!-- §1 ABOUT -->
+<!-- ABOUT -->
 <section id="about">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-num">§1</span><h2>Abstract</h2><span class="sec-sub">// who I am, in one page</span></div>
+    <div class="sec-head reveal"><h2>About</h2><span class="sec-sub">// who I am, in one page</span></div>
     <div class="about-grid">
       <div class="prose reveal">
         <p>I'm a bioprocess and biomedical engineering scientist with a PhD in Cancer Biology from the German Cancer Research Center (DKFZ) in Heidelberg. My work started with designing and optimising biological production processes for pharmaceuticals, biotechnology and renewable energy, and it now centres on finding novel vulnerabilities in cancer.</p>
@@ -280,10 +280,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </section>
 
-<!-- §2 JOURNEY -->
+<!-- JOURNEY -->
 <section id="journey" class="alt">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-num">§2</span><h2>Journey</h2><span class="sec-sub">// from enzymes to oncology, Mumbai → Heidelberg</span></div>
+    <div class="sec-head reveal"><h2>Journey</h2><span class="sec-sub">// from enzymes to oncology, Mumbai → Heidelberg</span></div>
     <div class="timeline">
       <div class="t-item now">
         <div class="t-when">NOW</div>
@@ -324,20 +324,20 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </section>
 
-<!-- §3 METHODS -->
+<!-- METHODS -->
 <section id="methods">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-num">§3</span><h2>Periodic table of methods</h2><span class="sec-sub">// tap an element to read it · tap a family to filter</span></div>
+    <div class="sec-head reveal"><h2>Periodic table of methods</h2><span class="sec-sub">// tap an element to read it · tap a family to filter</span></div>
     <div class="legend reveal" id="legend"></div>
     <div class="ptable reveal" id="ptable"></div>
     <div class="readout" id="readout"><b class="sym">?</b><div><div class="k">Element readout</div>Tap any tile to see what it means in my lab work.</div></div>
   </div>
 </section>
 
-<!-- §4 PAPERS -->
+<!-- PAPERS -->
 <section id="papers" class="alt">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-num">§4</span><h2>Results</h2><span class="sec-sub">// peer-reviewed publications</span></div>
+    <div class="sec-head reveal"><h2>Results</h2><span class="sec-sub">// peer-reviewed publications</span></div>
     <div class="filters reveal" id="filters">
       <button aria-pressed="true" data-f="all">All</button>
       <button aria-pressed="false" data-f="cancer">Cancer</button>
@@ -353,10 +353,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </section>
 
-<!-- §5 FIELD NOTES -->
+<!-- FIELD NOTES -->
 <section id="field">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-num">§5</span><h2>Field notes</h2><span class="sec-sub">// the same eye, a different lens</span></div>
+    <div class="sec-head reveal"><h2>Field notes</h2><span class="sec-sub">// the same eye, a different lens</span></div>
     <p class="field-intro reveal">Away from the lab I photograph and film wildlife, mostly along the Neckar. Getting one good shot means mixing optics, technique, patience and a bit of art, which is a feast for an engineer-cum-artist mind. Manual mode, composition and RAW processing are my current obsessions.</p>
     <div class="reel" id="reel"></div>
     <button class="btn more-btn" id="moreClips">Show all clips</button>
@@ -396,10 +396,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </section>
 
-<!-- §6 CONTACT -->
+<!-- CONTACT -->
 <section id="contact" class="alt contact">
   <div class="wrap">
-    <div class="sec-num reveal">§6 · Correspondence</div>
+    <div class="sec-num reveal">Correspondence</div>
     <h2 class="reveal" style="margin-top:12px">Let's build something<br><em style="font-style:italic;font-weight:400;color:var(--accent)">beyond borders.</em></h2>
     <p class="reveal">Collaborations in cancer research, biopharma or bioprocess engineering, or just a good wildlife spot. My inbox is open.</p>
     <div class="mail reveal"><a href="mailto:contact@vikasranvir.com">contact@vikasranvir.com</a><button class="copy" id="copy">copy</button></div>
@@ -430,7 +430,7 @@ if(innerWidth<420) document.querySelectorAll('.scope .lbl').forEach(s=>s.remove(
 /* ---------- hero canvas: cells under a microscope / stars through a telescope ---------- */
 const cv=document.getElementById('bgfield'), ctx=cv.getContext('2d');
 let W,H,P=[],mouse={x:-999,y:-999};
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const calm=matchMedia('(prefers-reduced-motion: reduce)').matches?0.5:1;
 function size(){const d=devicePixelRatio||1;W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
   const n=Math.round(Math.min(90,W*H/14000));P=[];for(let i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:6+Math.random()*16,s:Math.random()*.8+.4,ph:Math.random()*6.28})}
 function css(v){return getComputedStyle(root).getPropertyValue(v).trim()}
@@ -439,7 +439,7 @@ function frame(){
   const dark=isDark(), acc=css('--accent'), acc2=css('--accent2');
   ctx.clearRect(0,0,W,H); t+=.016;
   for(const p of P){
-    if(!reduce){p.x+=p.vx;p.y+=p.vy;
+    {p.x+=p.vx*calm;p.y+=p.vy*calm;
       const dx=mouse.x-p.x,dy=mouse.y-p.y,d=Math.hypot(dx,dy); if(d<160){p.x-=dx/d*.6;p.y-=dy/d*.6}
       if(p.x<-30)p.x=W+30;if(p.x>W+30)p.x=-30;if(p.y<-30)p.y=H+30;if(p.y>H+30)p.y=-30}
   }
@@ -463,13 +463,12 @@ function frame(){
     }
   }
   ctx.globalAlpha=1;
-  if(!reduce)requestAnimationFrame(frame);
+  requestAnimationFrame(frame);
 }
-addEventListener('resize',()=>{size();if(reduce)frame()});
+addEventListener('resize',size);
 cv.parentElement.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top});
 cv.parentElement.addEventListener('pointerleave',()=>{mouse.x=mouse.y=-999});
 size();frame();
-[mBtn,tBtn].forEach(b=>b.addEventListener('click',()=>{if(reduce)frame()}));
 
 /* ---------- nav ---------- */
 const nav=document.getElementById('nav'),sheet=document.getElementById('sheet'),menuBtn=document.getElementById('menuBtn');
