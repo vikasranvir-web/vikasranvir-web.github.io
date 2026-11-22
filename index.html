@@ -62,7 +62,7 @@ nav.scrolled{border-bottom-color:var(--line)}
 
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden}
-#field{position:absolute;inset:0;width:100%;height:100%}
+#bgfield{position:absolute;inset:0;width:100%;height:100%}
 .hero .wrap{position:relative;z-index:2;padding-top:90px;padding-bottom:60px;width:100%}
 .hero-grid{display:grid;gap:36px;align-items:center}
 @media(min-width:880px){.hero-grid{grid-template-columns:1.35fr .9fr}}
@@ -223,7 +223,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 </nav>
 
 <header class="hero" id="top">
-  <canvas id="field" aria-hidden="true"></canvas>
+  <canvas id="bgfield" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="hero-grid">
       <div>
@@ -428,7 +428,7 @@ mBtn.onclick=()=>setTheme('light'); tBtn.onclick=()=>setTheme('dark');
 if(innerWidth<420) document.querySelectorAll('.scope .lbl').forEach(s=>s.remove());
 
 /* ---------- hero canvas: cells under a microscope / stars through a telescope ---------- */
-const cv=document.getElementById('field'), ctx=cv.getContext('2d');
+const cv=document.getElementById('bgfield'), ctx=cv.getContext('2d');
 let W,H,P=[],mouse={x:-999,y:-999};
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function size(){const d=devicePixelRatio||1;W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
