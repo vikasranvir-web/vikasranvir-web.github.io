@@ -135,6 +135,31 @@ h2{font-family:var(--serif);font-size:clamp(32px,5vw,50px);font-weight:600;lette
 .strengths li{list-style:none;padding:8px 0;border-top:1px dashed var(--line);font-size:15px}
 .strengths li:first-of-type{border-top:0}
 
+/* consulting */
+.consult-grid{display:grid;gap:28px;margin-bottom:34px}
+@media(min-width:880px){.consult-grid{grid-template-columns:1.4fr 1fr;gap:40px}}
+.consult-intro p{margin-bottom:16px}
+.creds{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;align-self:start}
+.creds h3{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px;font-weight:500}
+.creds li{list-style:none;padding:9px 0;border-top:1px dashed var(--line);font-size:15px;display:flex;gap:10px}
+.creds li:first-of-type{border-top:0}
+.services{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.svc{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 20px 20px;overflow:hidden;transition:transform .2s,border-color .2s}
+.svc:hover{transform:translateY(-3px);border-color:var(--accent)}
+.svc::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.svc .num{font-family:var(--mono);font-size:12px;color:var(--accent2)}
+.svc h3{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.25;margin:6px 0 8px}
+.svc p{font-size:15px;color:var(--muted)}
+.team-strip{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:16px;padding:20px 22px;margin-bottom:22px}
+.team-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.team-head h3{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:-.01em}
+.team-ico{font-size:20px}
+.team-strip p{font-size:15.5px;color:var(--muted);max-width:52em}
+.team-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.team-tags .chip{border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+.consult-cta{margin-top:30px;display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.consult-cta p{font-family:var(--serif);font-size:clamp(19px,2.4vw,23px);line-height:1.3;max-width:30em}
+
 /* journey */
 .timeline{position:relative;padding-left:28px}
 .timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),var(--accent2))}
@@ -231,7 +256,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="wrap nav-in">
     <a class="brand" href="#top">Vikas<span>.</span>Ranvir</a>
     <div class="links" id="links">
-      <a href="#about">About</a><a href="#journey">Journey</a><a href="#methods">Methods</a><a href="#papers">Papers</a><a href="#field">Field notes</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#consulting">Consulting</a><a href="#journey">Journey</a><a href="#methods">Methods</a><a href="#papers">Papers</a><a href="#field">Field notes</a><a href="#contact">Contact</a>
     </div>
     <div class="right">
       <div class="scope" role="group" aria-label="Choose view">
@@ -244,7 +269,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     </div>
   </div>
   <div class="sheet" id="sheet">
-    <a href="#about">About</a><a href="#journey">Journey</a><a href="#methods">Methods</a><a href="#papers">Papers</a><a href="#field">Field notes</a><a href="#contact">Contact</a>
+    <a href="#about">About</a><a href="#consulting">Consulting</a><a href="#journey">Journey</a><a href="#methods">Methods</a><a href="#papers">Papers</a><a href="#field">Field notes</a><a href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -306,8 +331,48 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </section>
 
+<!-- CONSULTING -->
+<section id="consulting" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Consulting</h2><span class="sec-sub">// from molecule to manufacturing</span></div>
+    <div class="consult-grid">
+      <div class="consult-intro reveal">
+        <p>I offer consulting services to biopharmaceutical and biotechnology companies that need to design new products and the processes to manufacture them. My training is in Bio-Pharmaceutical Engineering, with a Bachelor of Pharmacy and an M.Tech in Bioprocess Technology from the Institute of Chemical Technology (ICT), Mumbai, followed by a PhD in Cancer Biology at the German Cancer Research Center (DKFZ), Heidelberg.</p>
+        <p>In industry, I worked as a Bioprocess Engineer in a GMP biosimilar manufacturing environment, developing production clones and running the expression and purification of therapeutic proteins, from bench-top systems to pilot- and process-scale bioreactors, tangential flow filtration and ÄKTA Pilot/Process chromatography. Earlier, I gained hands-on experience in API manufacturing and analysis. I bring this end-to-end view, from early design through to a robust, compliant commercial process, to every project.</p>
+      </div>
+      <aside class="creds reveal">
+        <h3>Background</h3>
+        <ul>
+          <li><span>🎓</span><span>Bio-Pharmaceutical Engineering: B.Pharm &amp; M.Tech Bioprocess Technology, ICT Mumbai</span></li>
+          <li><span>🎓</span><span>PhD Cancer Biology, DKFZ Heidelberg</span></li>
+          <li><span>🏭</span><span>GMP biopharma industry experience (biosimilars)</span></li>
+          <li><span>⚗️</span><span>Small-molecule (API) and biologics background</span></li>
+          <li><span>📜</span><span>Postgraduate Diploma in Intellectual Property Rights</span></li>
+        </ul>
+      </aside>
+    </div>
+    <div class="team-strip reveal">
+      <div class="team-head"><span class="team-ico">🤝</span><h3>Backed by an expert team</h3></div>
+      <p>I work alongside a team of experienced professors in chemical engineering and professionals from the biopharma industry, with hands-on expertise across:</p>
+      <div class="team-tags"><span class="chip">Proteins</span><span class="chip">Peptides</span><span class="chip">Monoclonal antibodies</span><span class="chip">Vaccines</span><span class="chip">Small molecules</span></div>
+    </div>
+    <div class="services">
+      <div class="svc reveal"><span class="num">01</span><h3>Chemical &amp; biologic drug design</h3><p>Support for small-molecule and protein therapeutic programmes, from target biology and candidate selection to developability considerations.</p></div>
+      <div class="svc reveal"><span class="num">02</span><h3>Lab-scale method development</h3><p>Upstream and downstream process development, analytical methods and assay setup, designed with scale-up in mind from day one.</p></div>
+      <div class="svc reveal"><span class="num">03</span><h3>Scale-up &amp; tech transfer</h3><p>Taking processes from bench to pilot to production scale: bioreactors, TFF and chromatography, plus transfer packages for manufacturing partners.</p></div>
+      <div class="svc reveal"><span class="num">04</span><h3>MSAT support</h3><p>Support for Manufacturing Science and Technology teams: process characterisation, troubleshooting, yield and robustness improvement, and root-cause investigations.</p></div>
+      <div class="svc reveal"><span class="num">05</span><h3>GMP production</h3><p>Practical guidance on running and improving GMP manufacturing for biologics, from documentation and batch readiness to on-the-floor process know-how.</p></div>
+      <div class="svc reveal"><span class="num">06</span><h3>Product &amp; process design</h3><p>Designing cost-efficient, scalable production routes using microbial or mammalian systems, with attention to process economics and intellectual property.</p></div>
+    </div>
+    <div class="consult-cta reveal">
+      <p>Have a product idea, a process that won't scale, or a GMP challenge? Let's talk.</p>
+      <a class="btn primary" href="mailto:consulting@vikasranvir.com?subject=Consulting%20enquiry">Discuss a project →</a>
+    </div>
+  </div>
+</section>
+
 <!-- JOURNEY -->
-<section id="journey" class="alt">
+<section id="journey">
   <div class="wrap">
     <div class="sec-head reveal"><h2>Journey</h2><span class="sec-sub">// from enzymes to oncology, Mumbai → Heidelberg</span></div>
     <div class="timeline">
@@ -351,7 +416,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 </section>
 
 <!-- METHODS -->
-<section id="methods">
+<section id="methods" class="alt">
   <div class="wrap">
     <div class="sec-head reveal"><h2>Periodic table of methods</h2><span class="sec-sub">// tap an element to read it · tap a family to filter</span></div>
     <div class="legend reveal" id="legend"></div>
@@ -361,7 +426,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 </section>
 
 <!-- PAPERS -->
-<section id="papers" class="alt">
+<section id="papers">
   <div class="wrap">
     <div class="sec-head reveal"><h2>Research Contribution</h2><span class="sec-sub">// peer-reviewed publications</span></div>
     <div class="filters reveal" id="filters">
@@ -380,7 +445,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 </section>
 
 <!-- FIELD NOTES -->
-<section id="field">
+<section id="field" class="alt">
   <div class="wrap">
     <div class="sec-head reveal"><h2>Field notes</h2><span class="sec-sub">// the same eye, a different lens</span></div>
     <p class="field-intro reveal">Away from the lab I photograph and film wildlife, mostly along the Neckar. Getting one good shot means mixing optics, technique, patience and a bit of art, which is a feast for an engineer-cum-artist mind. Manual mode, composition and RAW processing are my current obsessions.</p>
@@ -423,7 +488,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="alt contact">
+<section id="contact" class="contact">
   <div class="wrap">
     <div class="sec-num reveal">Correspondence</div>
     <h2 class="reveal" style="margin-top:12px">Let's build something<br><em style="font-style:italic;font-weight:400;color:var(--accent)">beyond borders.</em></h2>
