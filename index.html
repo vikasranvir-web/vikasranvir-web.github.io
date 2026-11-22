@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Vikas Ranvir — Cancer Biology & Bioprocess Engineering</title>
+<meta name="description" content="Dr. Vikas Prakash Ranvir — cancer biologist and bioprocess engineer. PhD from the German Cancer Research Center (DKFZ). Research, publications, methods and wildlife field notes.">
+<meta property="og:title" content="Dr. Vikas Ranvir — Technologies Beyond Borders">
+<meta property="og:description" content="Cancer biologist and bioprocess engineer hunting for new targets to treat cancer.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.vikasranvir.com/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='%230f766e'/><circle cx='38' cy='26' r='9' fill='%23f5f1e8'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f1e8; --bg2:#ece6d8; --card:#fffdf8; --ink:#1c1a17; --muted:#6b645a; --line:#d9d1c0;
+  --accent:#0f766e; --accent2:#b4532a; --glow:rgba(15,118,110,.14);
+  --c-vivo:#b4532a; --c-cell:#0f766e; --c-mol:#7c3aed; --c-micro:#4d7c0f; --c-ana:#2563eb; --c-pur:#c2410c; --c-bio:#be185d;
+  --serif:"Fraunces",Georgia,serif; --sans:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#070b16; --bg2:#0d1424; --card:#0f1729; --ink:#e8ecf5; --muted:#93a0b8; --line:#1f2a42;
+    --accent:#7dd3c8; --accent2:#f4b183; --glow:rgba(125,211,200,.12);
+    --c-vivo:#f4a27a; --c-cell:#5eead4; --c-mol:#c4b5fd; --c-micro:#bef264; --c-ana:#93c5fd; --c-pur:#fdba74; --c-bio:#f9a8d4;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070b16; --bg2:#0d1424; --card:#0f1729; --ink:#e8ecf5; --muted:#93a0b8; --line:#1f2a42;
+  --accent:#7dd3c8; --accent2:#f4b183; --glow:rgba(125,211,200,.12);
+  --c-vivo:#f4a27a; --c-cell:#5eead4; --c-mol:#c4b5fd; --c-micro:#bef264; --c-ana:#93c5fd; --c-pur:#fdba74; --c-bio:#f9a8d4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;transition:background .5s,color .5s;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+@media(min-width:720px){.wrap{padding:0 32px}}
+
+/* ---------- nav ---------- */
+nav{position:fixed;inset:0 0 auto 0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid transparent;transition:border-color .3s}
+nav.scrolled{border-bottom-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.brand{font-family:var(--serif);font-weight:800;font-size:20px;text-decoration:none;letter-spacing:-.02em}
+.brand span{color:var(--accent)}
+.links{display:none;gap:22px;font-size:14px;font-family:var(--mono)}
+.links a{text-decoration:none;color:var(--muted);transition:color .2s}
+.links a:hover,.links a.on{color:var(--accent)}
+@media(min-width:880px){.links{display:flex}}
+.right{display:flex;align-items:center;gap:8px}
+.scope{display:flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--card);font-family:var(--mono);font-size:12px}
+.scope button{border:0;background:transparent;color:var(--muted);padding:5px 10px;border-radius:999px;cursor:pointer;font:inherit;display:flex;gap:5px;align-items:center}
+.scope button[aria-pressed="true"]{background:var(--accent);color:var(--bg)}
+.menu-btn{display:flex;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer}
+@media(min-width:880px){.menu-btn{display:none}}
+.sheet{display:none;flex-direction:column;padding:8px 16px 16px;font-family:var(--mono);font-size:15px;border-top:1px solid var(--line)}
+.sheet a{padding:10px 0;text-decoration:none;border-bottom:1px dashed var(--line)}
+.sheet.open{display:flex}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+#field{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;z-index:2;padding-top:90px;padding-bottom:60px;width:100%}
+.hero-grid{display:grid;gap:36px;align-items:center}
+@media(min-width:880px){.hero-grid{grid-template-columns:1.35fr .9fr}}
+.eyebrow{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+h1{font-family:var(--serif);font-weight:800;font-size:clamp(44px,9vw,92px);line-height:.98;letter-spacing:-.035em;margin:18px 0 22px}
+h1 em{font-style:italic;font-weight:400;color:var(--accent)}
+.lede{font-size:clamp(18px,2.2vw,21px);color:var(--muted);max-width:34em}
+.lede b{color:var(--ink);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--line);background:var(--card);transition:transform .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.portrait{position:relative;justify-self:center;width:min(300px,72vw);aspect-ratio:1}
+.portrait .ring{position:absolute;inset:-14px;border-radius:50%;border:1px dashed var(--accent);animation:spin 40s linear infinite;opacity:.6}
+.portrait .ring::after{content:"";position:absolute;top:8%;left:12%;width:12px;height:12px;border-radius:50%;background:var(--accent2);box-shadow:0 0 18px var(--accent2)}
+.portrait .disc{position:absolute;inset:0;border-radius:50%;overflow:hidden;background:radial-gradient(circle at 35% 30%,var(--card),var(--bg2));border:1px solid var(--line);display:grid;place-items:center;box-shadow:0 30px 80px -30px var(--glow)}
+.portrait .mono{font-family:var(--serif);font-size:96px;font-weight:800;color:var(--accent);letter-spacing:-.05em}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tag-float{position:absolute;font-family:var(--mono);font-size:12px;background:var(--card);border:1px solid var(--line);padding:6px 10px;border-radius:8px;white-space:nowrap;box-shadow:0 8px 24px -12px rgba(0,0,0,.25)}
+.tag-float.a{top:6%;right:-6%}.tag-float.b{bottom:12%;left:-10%}.tag-float.c{bottom:-4%;right:4%}
+@keyframes spin{to{transform:rotate(360deg)}}
+.scroll-hint{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:2;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase}
+
+/* ---------- sections ---------- */
+section{padding:88px 0;position:relative}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:36px;flex-wrap:wrap}
+.sec-num{font-family:var(--mono);font-size:13px;color:var(--accent2)}
+h2{font-family:var(--serif);font-size:clamp(32px,5vw,50px);font-weight:600;letter-spacing:-.03em;line-height:1.05}
+.sec-sub{font-family:var(--mono);font-size:13px;color:var(--muted);width:100%}
+.alt{background:var(--bg2);transition:background .5s}
+
+/* about */
+.about-grid{display:grid;gap:40px}
+@media(min-width:880px){.about-grid{grid-template-columns:1.4fr 1fr}}
+.prose p{margin-bottom:18px}
+.prose p:first-child::first-letter{font-family:var(--serif);font-size:3.4em;float:left;line-height:.85;padding:6px 10px 0 0;color:var(--accent);font-weight:800}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.stat b{display:block;font-family:var(--serif);font-size:38px;line-height:1;letter-spacing:-.03em;color:var(--accent)}
+.stat span{font-size:13px;color:var(--muted);font-family:var(--mono)}
+.strengths{grid-column:1/-1;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.strengths h3{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px;font-weight:500}
+.strengths li{list-style:none;padding:8px 0;border-top:1px dashed var(--line);font-size:15px}
+.strengths li:first-of-type{border-top:0}
+
+/* journey */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),var(--accent2))}
+.t-item{position:relative;margin-bottom:26px;opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.t-item.in{opacity:1;transform:none}
+.t-item::before{content:"";position:absolute;left:-27px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--bg2);border:3px solid var(--accent)}
+.t-item.now::before{background:var(--accent2);border-color:var(--accent2);box-shadow:0 0 0 6px color-mix(in srgb,var(--accent2) 25%,transparent);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 12px transparent}}
+.t-when{font-family:var(--mono);font-size:12px;color:var(--accent2);letter-spacing:.05em}
+.t-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-top:6px}
+.t-card h3{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.t-card .where{font-size:14px;color:var(--muted);margin:2px 0 8px}
+.t-card p{font-size:15px}
+.edu{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+.chip{font-family:var(--mono);font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+
+/* periodic table */
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.legend button{font-family:var(--mono);font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:7px;transition:opacity .2s}
+.legend button i{width:9px;height:9px;border-radius:50%;background:var(--c)}
+.legend button[aria-pressed="false"]{opacity:.4}
+.ptable{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.el{position:relative;aspect-ratio:1;border-radius:10px;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c);padding:6px 7px;cursor:pointer;text-align:left;color:var(--ink);font:inherit;transition:transform .2s,opacity .3s,box-shadow .2s;display:flex;flex-direction:column;justify-content:space-between}
+.el:hover,.el.sel{transform:translateY(-3px);box-shadow:0 12px 26px -14px var(--c)}
+.el.sel{outline:2px solid var(--c)}
+.el small{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.el b{font-family:var(--serif);font-size:26px;line-height:1;font-weight:600;color:var(--c)}
+.el span{font-size:9.5px;line-height:1.15;color:var(--muted);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.el.dim{opacity:.12;pointer-events:none}
+.readout{margin-top:18px;min-height:76px;background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:14px 18px;font-size:15px;display:flex;gap:16px;align-items:center}
+.readout b.sym{font-family:var(--serif);font-size:40px;line-height:1;color:var(--c,var(--accent));min-width:56px}
+.readout .k{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+
+/* papers */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filters button{font-family:var(--mono);font-size:12px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.papers{display:grid;gap:14px}
+@media(min-width:720px){.papers{grid-template-columns:1fr 1fr}}
+.paper{display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;text-decoration:none;transition:transform .2s,border-color .2s;position:relative;overflow:hidden}
+.paper:hover{transform:translateY(-3px);border-color:var(--accent)}
+.paper.feature{border-color:color-mix(in srgb,var(--accent) 50%,var(--line))}
+.paper.feature::after{content:"";position:absolute;right:-40px;top:-40px;width:120px;height:120px;border-radius:50%;background:var(--glow)}
+.journal{font-family:var(--mono);font-size:12px;color:var(--accent2);display:flex;justify-content:space-between;gap:10px}
+.paper h3{font-family:var(--serif);font-weight:600;font-size:19px;line-height:1.3;letter-spacing:-.01em}
+.paper .doi{font-family:var(--mono);font-size:11px;color:var(--muted);word-break:break-all;margin-top:auto}
+.paper.hide{display:none}
+.scholar-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+
+/* field notes */
+.field-intro{max-width:44em;color:var(--muted);margin-bottom:28px}
+.reel{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.clip{border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
+.clip .frame{position:relative;aspect-ratio:16/9;background:#000;cursor:pointer;border:0;width:100%;display:block;padding:0}
+.clip .frame img{width:100%;height:100%;object-fit:cover;transition:transform .5s,opacity .3s;opacity:.88}
+.clip .frame:hover img{transform:scale(1.05);opacity:1}
+.clip .play{position:absolute;inset:0;margin:auto;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+.clip .play::after{content:"";border-left:16px solid #111;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+.clip iframe{width:100%;height:100%;border:0;position:absolute;inset:0}
+.clip .cap{padding:12px 14px;font-size:14px;line-height:1.4}
+.clip .cap small{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:3px}
+.more-btn{margin-top:20px}
+
+/* extras */
+.extras{display:grid;gap:14px}
+@media(min-width:720px){.extras{grid-template-columns:repeat(3,1fr)}}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.box h3{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:12px;font-weight:500}
+.box li{list-style:none;font-size:15px;padding:6px 0;border-top:1px dashed var(--line)}
+.box li:first-child{border-top:0}
+.lang{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.bar{flex:0 0 90px;height:6px;border-radius:9px;background:var(--bg2);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:9px}
+
+/* contact */
+.contact{text-align:center;padding:110px 0}
+.contact h2{font-size:clamp(36px,7vw,72px)}
+.contact p{color:var(--muted);max-width:34em;margin:18px auto 30px}
+.mail{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center}
+.mail a{font-family:var(--serif);font-size:clamp(20px,4vw,32px);color:var(--accent);text-decoration:none;border-bottom:2px solid currentColor}
+.copy{font-family:var(--mono);font-size:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 12px;border-radius:999px;cursor:pointer;margin-left:8px}
+.socials{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:34px}
+footer{border-top:1px solid var(--line);padding:26px 0;font-family:var(--mono);font-size:12px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.reveal,.t-item{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">Vikas<span>.</span>Ranvir</a>
+    <div class="links" id="links">
+      <a href="#about">About</a><a href="#journey">Journey</a><a href="#methods">Methods</a><a href="#papers">Papers</a><a href="#field">Field notes</a><a href="#contact">Contact</a>
+    </div>
+    <div class="right">
+      <div class="scope" role="group" aria-label="Choose view">
+        <button id="micro" aria-pressed="true" title="Microscope view (light)">🔬<span class="lbl">Micro</span></button>
+        <button id="tele" aria-pressed="false" title="Telescope view (dark)">🔭<span class="lbl">Tele</span></button>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="sheet" id="sheet">
+    <a href="#about">§1 About</a><a href="#journey">§2 Journey</a><a href="#methods">§3 Methods</a><a href="#papers">§4 Papers</a><a href="#field">§5 Field notes</a><a href="#contact">§6 Contact</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Technologies Beyond Borders</div>
+        <h1>Dr. Vikas<br>Ranvir<em>,</em> <em>PhD</em></h1>
+        <p class="lede">Cancer biologist and bioprocess engineer. Trained at <b>DKFZ Heidelberg</b> and <b>ICT Mumbai</b>, I move between the bioreactor and the bench, and right now I'm <b>hunting for new targets to treat cancer</b>.</p>
+        <div class="cta">
+          <a class="btn primary" href="#papers">Read the research →</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="portrait" aria-label="Portrait">
+        <div class="ring"></div>
+        <div class="disc">
+          <span class="mono">VR</span>
+          <!-- Put your photo next to this file as photo.jpg and it appears here automatically -->
+          <img src="photo.jpg" alt="Dr. Vikas Ranvir" onerror="this.remove()">
+        </div>
+        <div class="tag-float a">🧬 Cancer biology</div>
+        <div class="tag-float b">⚗️ Bioprocess</div>
+        <div class="tag-float c">📷 Wildlife lens</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">scroll ↓</div>
+</header>
+
+<!-- §1 ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">§1</span><h2>Abstract</h2><span class="sec-sub">// who I am, in one page</span></div>
+    <div class="about-grid">
+      <div class="prose reveal">
+        <p>I'm a bioprocess and biomedical engineering scientist with a PhD in Cancer Biology from the German Cancer Research Center (DKFZ) in Heidelberg. My work started with designing and optimising biological production processes for pharmaceuticals, biotechnology and renewable energy, and it now centres on finding novel vulnerabilities in cancer.</p>
+        <p>My grounding is in chemical and biopharmaceutical engineering, with depth in biochemistry, molecular biology, microbiology and mammalian cell culture. In industry I worked across upstream and downstream biomanufacturing, from pilot- and process-scale bioreactors to tangential flow filtration and chromatography, in a GMP environment.</p>
+        <p>I enjoy working in teams of scientists, technologists and engineers to untangle hard problems. Whether it is a new drug, a cleaner biofuel process or a target nobody has looked at yet, I want my work to leave a positive mark. If you have a project in biopharma, bioprocessing or cancer research, I'd love to hear about it.</p>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><b data-count="7">0</b><span>peer-reviewed papers</span></div>
+        <div class="stat"><b data-count="4">0</b><span>in Nature-family &amp; Science journals</span></div>
+        <div class="stat"><b>2013</b><span>at the bench since</span></div>
+        <div class="stat"><b data-count="5">0</b><span>languages spoken</span></div>
+        <div class="strengths">
+          <h3>Strengths</h3>
+          <ul>
+            <li>Positive, hands-on leadership in scientific teams; works independently and brings original ideas</li>
+            <li>Trained in Industrial &amp; Organizational Psychology</li>
+            <li>Clear technical writing and communication in English</li>
+            <li>Postgraduate Diploma in Intellectual Property Rights</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §2 JOURNEY -->
+<section id="journey" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">§2</span><h2>Journey</h2><span class="sec-sub">// from enzymes to oncology, Mumbai → Heidelberg</span></div>
+    <div class="timeline">
+      <div class="t-item now">
+        <div class="t-when">NOW</div>
+        <div class="t-card"><h3>Searching for novel cancer targets</h3><p>Applying a decade of engineering and molecular biology to find new therapeutic vulnerabilities in cancer.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-when">PhD</div>
+        <div class="t-card"><h3>PhD in Cancer Biology</h3><div class="where">German Cancer Research Center (DKFZ), Heidelberg, Germany</div><p>Mouse models (FELASA certified), animal permits, hydrodynamic tail-vein injection, and collaborative work published in <i>Nature</i>, <i>Science Translational Medicine</i>, <i>Nature Cell Biology</i> and <i>Nature Aging</i>.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-when">NOV 2018</div>
+        <div class="t-card"><h3>Junior Research Fellow</h3><div class="where">ACTREC, Mumbai · DNA Repair &amp; Molecular Oncology Lab (Dr. Shilpee Dutt)</div><p>First step into cancer research.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-when">DEC 2017 – JUN 2018</div>
+        <div class="t-card"><h3>Bioprocess Engineer</h3><div class="where">USV Biologics, Mumbai · biosimilars</div><p>Developed clones for therapeutic protein production, and ran their overexpression and purification at scale.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-when">2015 – 2017</div>
+        <div class="t-card"><h3>M.Tech, Bioprocess Technology</h3><div class="where">Institute of Chemical Technology, Mumbai · DBT-ICT Centre for Energy Biosciences</div><p>Fused the accessory protein expansin to cellulase and laccase by overlap-extension PCR to boost substrate binding and catalysis. Isolated thermophilic cellulolytic microbes using 16S rRNA sequencing. Qualified GATE.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-when">2014 – 2015</div>
+        <div class="t-card"><h3>Research project, enzyme biochemistry</h3><div class="where">DBT-ICT Centre for Energy Biosciences (Dr. Sanjeev K. Chandrayan)</div><p>Expressed and characterised a thermostable, glucose-tolerant β-glucosidase from <i>Methylococcus capsulatus</i>, which became my first paper.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-when">2013</div>
+        <div class="t-card"><h3>B.Pharm &amp; first industry stint</h3><div class="where">Institute of Chemical Technology, Mumbai · Urmila Chemopharma</div><p>Summer internship in API manufacturing and analysis. Qualified GPAT; Gunvati J Kapoor Merit-cum-Means Scholar.</p></div>
+      </div>
+    </div>
+    <div class="edu reveal">
+      <span class="chip">🎓 PhD Cancer Biology · DKFZ</span>
+      <span class="chip">🎓 M.Tech Bioprocess Tech · ICT</span>
+      <span class="chip">🎓 B.Pharm · ICT</span>
+      <span class="chip">📜 PG Diploma IPR · IGNOU</span>
+      <span class="chip">🏅 GATE · GPAT qualified</span>
+    </div>
+  </div>
+</section>
+
+<!-- §3 METHODS -->
+<section id="methods">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">§3</span><h2>Periodic table of methods</h2><span class="sec-sub">// tap an element to read it · tap a family to filter</span></div>
+    <div class="legend reveal" id="legend"></div>
+    <div class="ptable reveal" id="ptable"></div>
+    <div class="readout" id="readout"><b class="sym">?</b><div><div class="k">Element readout</div>Tap any tile to see what it means in my lab work.</div></div>
+  </div>
+</section>
+
+<!-- §4 PAPERS -->
+<section id="papers" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">§4</span><h2>Results</h2><span class="sec-sub">// peer-reviewed publications</span></div>
+    <div class="filters reveal" id="filters">
+      <button aria-pressed="true" data-f="all">All</button>
+      <button aria-pressed="false" data-f="cancer">Cancer</button>
+      <button aria-pressed="false" data-f="ageing">Ageing &amp; senescence</button>
+      <button aria-pressed="false" data-f="clinical">Clinical</button>
+      <button aria-pressed="false" data-f="enzyme">Enzymes</button>
+    </div>
+    <div class="papers" id="paperList"></div>
+    <div class="scholar-row reveal">
+      <a class="btn" href="https://scholar.google.co.in/citations?user=5zh-flAAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
+      <a class="btn" href="https://www.researchgate.net/profile/Vikas_Ranvir" target="_blank" rel="noopener">ResearchGate ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- §5 FIELD NOTES -->
+<section id="field">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">§5</span><h2>Field notes</h2><span class="sec-sub">// the same eye, a different lens</span></div>
+    <p class="field-intro reveal">Away from the lab I photograph and film wildlife, mostly along the Neckar. Getting one good shot means mixing optics, technique, patience and a bit of art, which is a feast for an engineer-cum-artist mind. Manual mode, composition and RAW processing are my current obsessions.</p>
+    <div class="reel" id="reel"></div>
+    <button class="btn more-btn" id="moreClips">Show all clips</button>
+
+    <div class="extras" style="margin-top:56px">
+      <div class="box reveal">
+        <h3>Languages</h3>
+        <ul>
+          <li class="lang">English <span class="bar"><i style="width:88%"></i></span></li>
+          <li class="lang">Marathi · native <span class="bar"><i style="width:100%"></i></span></li>
+          <li class="lang">Hindi <span class="bar"><i style="width:90%"></i></span></li>
+          <li class="lang">Sanskrit <span class="bar"><i style="width:45%"></i></span></li>
+          <li class="lang">German · learning <span class="bar"><i style="width:22%"></i></span></li>
+        </ul>
+      </div>
+      <div class="box reveal">
+        <h3>Beyond the lab</h3>
+        <ul>
+          <li>🧘 Meditation &amp; yoga</li>
+          <li>🌌 Stargazing &amp; astrophotography</li>
+          <li>🏸 Badminton, long river walks</li>
+          <li>📚 Novels, I/O psychology, documentaries</li>
+          <li>🍳 Cooking</li>
+        </ul>
+      </div>
+      <div class="box reveal">
+        <h3>Service &amp; workshops</h3>
+        <ul>
+          <li>Class &amp; placement coordinator, M.Tech</li>
+          <li>Lab teaching assistant, biochemistry &amp; genetics</li>
+          <li>Volunteer: Gunvati J Kapoor Foundation, SHARE NGO</li>
+          <li>Lung Cancer Consortium Asia workshop; NRSM, ACTREC</li>
+          <li>Workshops: animal handling, R, drug design, bioanalytics</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §6 CONTACT -->
+<section id="contact" class="alt contact">
+  <div class="wrap">
+    <div class="sec-num reveal">§6 · Correspondence</div>
+    <h2 class="reveal" style="margin-top:12px">Let's build something<br><em style="font-style:italic;font-weight:400;color:var(--accent)">beyond borders.</em></h2>
+    <p class="reveal">Collaborations in cancer research, biopharma or bioprocess engineering, or just a good wildlife spot. My inbox is open.</p>
+    <div class="mail reveal"><a href="mailto:contact@vikasranvir.com">contact@vikasranvir.com</a><button class="copy" id="copy">copy</button></div>
+    <div class="socials reveal">
+      <a class="btn" href="https://www.linkedin.com/in/vikas-ranvir/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://scholar.google.co.in/citations?user=5zh-flAAAAAJ&hl=en" target="_blank" rel="noopener">Scholar ↗</a>
+      <a class="btn" href="https://www.researchgate.net/profile/Vikas_Ranvir" target="_blank" rel="noopener">ResearchGate ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>© <span id="yr"></span> Dr. Vikas Prakash Ranvir</span><span>Technologies Beyond Borders</span></div>
+</footer>
+
+<script>
+/* ---------- theme: microscope (light) / telescope (dark) ---------- */
+const root=document.documentElement, mBtn=document.getElementById('micro'), tBtn=document.getElementById('tele');
+function store(k,v){try{v===undefined?null:localStorage.setItem(k,v)}catch(e){}}
+function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function isDark(){const t=root.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+function setTheme(t){root.setAttribute('data-theme',t);store('vr-theme',t);syncBtns()}
+function syncBtns(){const d=isDark();tBtn.setAttribute('aria-pressed',d);mBtn.setAttribute('aria-pressed',!d)}
+const saved=load('vr-theme'); if(saved) root.setAttribute('data-theme',saved); syncBtns();
+mBtn.onclick=()=>setTheme('light'); tBtn.onclick=()=>setTheme('dark');
+if(innerWidth<420) document.querySelectorAll('.scope .lbl').forEach(s=>s.remove());
+
+/* ---------- hero canvas: cells under a microscope / stars through a telescope ---------- */
+const cv=document.getElementById('field'), ctx=cv.getContext('2d');
+let W,H,P=[],mouse={x:-999,y:-999};
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function size(){const d=devicePixelRatio||1;W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+  const n=Math.round(Math.min(90,W*H/14000));P=[];for(let i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:6+Math.random()*16,s:Math.random()*.8+.4,ph:Math.random()*6.28})}
+function css(v){return getComputedStyle(root).getPropertyValue(v).trim()}
+let t=0;
+function frame(){
+  const dark=isDark(), acc=css('--accent'), acc2=css('--accent2');
+  ctx.clearRect(0,0,W,H); t+=.016;
+  for(const p of P){
+    if(!reduce){p.x+=p.vx;p.y+=p.vy;
+      const dx=mouse.x-p.x,dy=mouse.y-p.y,d=Math.hypot(dx,dy); if(d<160){p.x-=dx/d*.6;p.y-=dy/d*.6}
+      if(p.x<-30)p.x=W+30;if(p.x>W+30)p.x=-30;if(p.y<-30)p.y=H+30;if(p.y>H+30)p.y=-30}
+  }
+  const L=dark?130:110;
+  ctx.lineWidth=1;
+  for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){
+    const a=P[i],b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+    if(d<L){ctx.globalAlpha=(1-d/L)*(dark?.35:.18);ctx.strokeStyle=acc;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}
+  }
+  for(const p of P){
+    if(dark){ // stars
+      const tw=.55+.45*Math.sin(t*2*p.s+p.ph), r=p.s*1.6;
+      ctx.globalAlpha=tw;ctx.fillStyle=p.r>19?acc2:'#ffffff';
+      ctx.beginPath();ctx.arc(p.x,p.y,r,0,7);ctx.fill();
+      ctx.globalAlpha=tw*.15;ctx.beginPath();ctx.arc(p.x,p.y,r*5,0,7);ctx.fill();
+    }else{ // cells
+      const w=1+.05*Math.sin(t*1.5+p.ph);
+      ctx.globalAlpha=.14;ctx.fillStyle=acc;ctx.beginPath();ctx.ellipse(p.x,p.y,p.r*w,p.r/w,p.ph,0,7);ctx.fill();
+      ctx.globalAlpha=.35;ctx.strokeStyle=acc;ctx.stroke();
+      ctx.globalAlpha=.45;ctx.fillStyle=p.r>18?acc2:acc;ctx.beginPath();ctx.arc(p.x+p.r*.2,p.y-p.r*.15,p.r*.32,0,7);ctx.fill();
+    }
+  }
+  ctx.globalAlpha=1;
+  if(!reduce)requestAnimationFrame(frame);
+}
+addEventListener('resize',()=>{size();if(reduce)frame()});
+cv.parentElement.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top});
+cv.parentElement.addEventListener('pointerleave',()=>{mouse.x=mouse.y=-999});
+size();frame();
+[mBtn,tBtn].forEach(b=>b.addEventListener('click',()=>{if(reduce)frame()}));
+
+/* ---------- nav ---------- */
+const nav=document.getElementById('nav'),sheet=document.getElementById('sheet'),menuBtn=document.getElementById('menuBtn');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
+menuBtn.onclick=()=>{const o=sheet.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)};
+sheet.querySelectorAll('a').forEach(a=>a.onclick=()=>{sheet.classList.remove('open');menuBtn.setAttribute('aria-expanded',false)});
+const navLinks=[...document.querySelectorAll('#links a')];
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>spy.observe(s));
+
+/* ---------- periodic table ---------- */
+const FAM={vivo:['In vivo','--c-vivo'],cell:['Cell culture','--c-cell'],mol:['Molecular biology','--c-mol'],micro:['Microbiology','--c-micro'],ana:['Analytics','--c-ana'],pur:['Purification','--c-pur'],bio:['Bioinformatics & software','--c-bio']};
+const EL=[
+ ['Fe','FELASA certified','vivo','Certified for laboratory animal science; designs and runs mouse experiments.'],
+ ['Ap','Animal permits','vivo','Writes animal permit applications and addendums.'],
+ ['Tv','Tail-vein injection','vivo','Standard and hydrodynamic tail-vein injections (up to 2.5 ml).'],
+ ['Gm','GMP cell culture','cell','Adherent and suspension culture in GMP and ISO-classified areas.'],
+ ['Sl','Stable cell lines','cell','Generation of transient and stable cell lines; cryopreservation and recovery.'],
+ ['Kd','Knockdown','cell','siRNA/shRNA-mediated gene knockdown and overexpression.'],
+ ['Tf','Transfection','cell','Calcium phosphate, Lipofectamine and nucleofection.'],
+ ['Vt','Viral transduction','cell','Viral particle production, transduction and spinoculation.'],
+ ['My','Mycoplasma testing','cell','Routine detection of mycoplasma contamination.'],
+ ['Gw','Gateway cloning','mol','Conventional and Gateway cloning, restriction digest, ligation, transformation.'],
+ ['Pc','PCR & RT-PCR','mol','PCR, RT-PCR and genomic/plasmid DNA isolation.'],
+ ['Qp','qPCR','mol','Quantitative PCR for gene expression.'],
+ ['Oe','Overlap-extension PCR','mol','Gene fusion and site-directed mutagenesis, used to build expansin fusion enzymes.'],
+ ['Ip','Immunoprecipitation','mol','Protein pull-downs and interaction studies.'],
+ ['Pe','Protein expression','mol','Heterologous protein expression and purification.'],
+ ['Bs','Biosafety','micro','Biosafety cabinet work and sterilisation techniques.'],
+ ['Is','Microbe isolation','micro','Screening, enrichment and isolation of microbes from environmental samples.'],
+ ['Rs','16S rRNA sequencing','micro','Microbial identification and taxonomic classification.'],
+ ['Ph','Phylogenetics','micro','Phylogenetic analysis with MEGA.'],
+ ['Wb','Western blot','ana','SDS-PAGE, western blot and gel documentation (ImageLab, QuantityOne).'],
+ ['Hp','HPLC','ana','High-performance liquid chromatography.'],
+ ['Gc','GC-MS','ana','Gas chromatography–mass spectrometry.'],
+ ['Uv','Spectroscopy','ana','UV-Vis, NanoDrop, fluorimetry, Bradford and Folin–Ciocalteu assays.'],
+ ['Äk','ÄKTA systems','pur','ÄKTA Purifier, Pilot and Process chromatography.'],
+ ['Tff','Tangential flow','pur','Tangential flow filtration for downstream processing.'],
+ ['Ni','Ni-NTA','pur','Immobilised metal affinity chromatography.'],
+ ['Ix','Ion exchange','pur','Ion-exchange and affinity chromatography.'],
+ ['Eb','Expanded bed','pur','Expanded bed adsorption chromatography.'],
+ ['Br','Bioreactors','pur','Pilot- and process-scale bioreactor operation.'],
+ ['Cb','cBioPortal','bio','Primary analysis of cancer genomics datasets.'],
+ ['Bl','BLAST & UniProt','bio','BLAST, ProtParam, Clustal Omega, UniProt, GenBank, PDB.'],
+ ['R','R statistics','bio','Data analysis and visualisation in R.'],
+ ['Gp','GraphPad Prism','bio','Statistics and figures in Prism.'],
+ ['Pm','PyMOL','bio','Protein structure visualisation.'],
+ ['Sg','SnapGene','bio','Plasmid design with SnapGene and SerialCloner.']
+];
+const pt=document.getElementById('ptable'),lg=document.getElementById('legend'),ro=document.getElementById('readout');
+const active=new Set(Object.keys(FAM));
+EL.forEach((e,i)=>{const b=document.createElement('button');b.className='el';b.dataset.f=e[2];b.style.setProperty('--c',`var(${FAM[e[2]][1]})`);
+  b.innerHTML=`<small>${i+1}</small><b>${e[0]}</b><span>${e[1]}</span>`;
+  b.onclick=()=>{pt.querySelectorAll('.sel').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');ro.style.setProperty('--c',`var(${FAM[e[2]][1]})`);
+    ro.innerHTML=`<b class="sym">${e[0]}</b><div><div class="k">${FAM[e[2]][0]} · No. ${i+1}</div><strong>${e[1]}</strong> — ${e[3]}</div>`};
+  pt.appendChild(b)});
+Object.entries(FAM).forEach(([k,[n,c]])=>{const b=document.createElement('button');b.setAttribute('aria-pressed','true');b.style.setProperty('--c',`var(${c})`);b.innerHTML=`<i></i>${n}`;
+  b.onclick=()=>{
+    // first click isolates a family; clicking again restores all
+    if(active.size===Object.keys(FAM).length){active.clear();active.add(k)}else if(active.has(k)&&active.size===1){Object.keys(FAM).forEach(x=>active.add(x))}else{active.has(k)?active.delete(k):active.add(k)}
+    lg.querySelectorAll('button').forEach((x,j)=>x.setAttribute('aria-pressed',active.has(Object.keys(FAM)[j])));
+    pt.querySelectorAll('.el').forEach(x=>x.classList.toggle('dim',!active.has(x.dataset.f)))};
+  lg.appendChild(b)});
+
+/* ---------- papers ---------- */
+const PAPERS=[
+ ['Nature','Activated ATF6α is a hepatic tumour driver restricting immunosurveillance','10.1038/s41586-025-10036-8','https://www.nature.com/articles/s41586-025-10036-8',['cancer'],1],
+ ['Science Translational Medicine','Claudin-1 targeting suppresses tumor growth, invasion, and metastasis in patient-derived cholangiocarcinoma models','10.1126/scitranslmed.adp2595','https://www.science.org/doi/10.1126/scitranslmed.adp2595',['cancer'],1],
+ ['Nature Cell Biology','Electrophilic compound screening identifies GPX4-dependent ferroptosis as a senescence vulnerability','10.1038/s41556-026-01921-z','https://www.nature.com/articles/s41556-026-01921-z',['ageing'],1],
+ ['Nature Aging','Ribosomal S6 kinase 1 regulates inflammaging via the senescence secretome','10.1038/s43587-024-00695-z','https://doi.org/10.1038/s43587-024-00695-z',['ageing'],1],
+ ['Theranostics','Non-canonical integrin signaling activates EGFR and RAS-MAPK-ERK signaling in small cell lung cancer','10.7150/thno.79493','https://doi.org/10.7150/thno.79493',['cancer'],0],
+ ['Journal of Surgery and Research · 2021','Combining ALT/AST values with Surgical APGAR score improves prediction of major complications after hepatectomy','10.26502/jsr.10020179','https://doi.org/10.26502/jsr.10020179',['clinical'],0],
+ ['Int. J. Biological Macromolecules · 2017','Heterologous expression and biochemical studies of a thermostable glucose tolerant β-glucosidase from Methylococcus capsulatus (Bath strain)','10.1016/j.ijbiomac.2017.04.078','https://doi.org/10.1016/j.ijbiomac.2017.04.078',['enzyme'],0]
+];
+const pl=document.getElementById('paperList');
+PAPERS.forEach(p=>{const a=document.createElement('a');a.className='paper reveal'+(p[5]?' feature':'');a.href=p[3];a.target='_blank';a.rel='noopener';a.dataset.t=p[4].join(' ');
+  a.innerHTML=`<div class="journal"><span>${p[0]}</span><span>↗</span></div><h3>${p[1]}</h3><div class="doi">doi:${p[2]}</div>`;pl.appendChild(a)});
+document.querySelectorAll('#filters button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  const f=b.dataset.f;pl.querySelectorAll('.paper').forEach(p=>p.classList.toggle('hide',f!=='all'&&!p.dataset.t.includes(f)))});
+
+/* ---------- field notes (videos load only when tapped) ---------- */
+const CLIPS=[
+ ['YssTenwCXHc','Wildlife reel','Field video'],
+ ['oS-kNZh4i30','Honeybee on a daisy, in slow motion','Macro · slow-mo'],
+ ['6nkL3zzv_So','Cormorant spreading its wings','Neckar river'],
+ ['CFuyhbRPd1Y','A pair of black-headed gulls','Neckar river'],
+ ['CW65qL3G5-o','Swan gliding on the river','Neckar river'],
+ ['9d0Rz0-bQ8k','Goose couple at rest','Neckar river'],
+ ['BiI4-228b_I','Egyptian geese on the bank','Neckar river'],
+ ['kEUKInkbAx8','Male Inca tern sharing a fish','Courtship'],
+ ['We1MRP-TjAw','Inca tern courtship','Courtship'],
+ ['5mm_fJe16XA','Lion roaring','Heidelberg Zoo'],
+ ['2cju_OLeIYE','Lioness eating grass — veganism at its peak!','Heidelberg Zoo'],
+ ['-LrFES7OkBc','Marbled duck in a pond','Heidelberg Zoo'],
+ ['jiOX1hTvInU','Bactrian camel pair','Heidelberg Zoo'],
+ ['LYFSLC987n8','Dalmatian pelican','Heidelberg Zoo'],
+ ['-5S4Prv32GY','Bluethroat','Heidelberg Zoo']
+];
+const reel=document.getElementById('reel'),moreBtn=document.getElementById('moreClips');
+const SHOW=6;
+CLIPS.forEach((c,i)=>{const d=document.createElement('div');d.className='clip';if(i>=SHOW)d.hidden=true;
+  d.innerHTML=`<button class="frame" aria-label="Play: ${c[1]}"><img loading="lazy" src="https://i.ytimg.com/vi/${c[0]}/hqdefault.jpg" alt=""><span class="play"></span></button><div class="cap">${c[1]}<small>${c[2]}</small></div>`;
+  d.querySelector('.frame').onclick=function(){this.outerHTML=`<div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/${c[0]}?autoplay=1&rel=0" title="${c[1]}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>`};
+  reel.appendChild(d)});
+moreBtn.onclick=()=>{reel.querySelectorAll('.clip[hidden]').forEach(c=>c.hidden=false);moreBtn.remove()};
+
+/* ---------- reveal + counters ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);
+  e.target.querySelectorAll('[data-count]').forEach(n=>{const end=+n.dataset.count;let v=0;const s=setInterval(()=>{n.textContent=++v;if(v>=end)clearInterval(s)},120)})}),{threshold:.12});
+document.querySelectorAll('.reveal,.t-item').forEach(el=>io.observe(el));
+
+/* ---------- misc ---------- */
+document.getElementById('copy').onclick=async function(){try{await navigator.clipboard.writeText('contact@vikasranvir.com');this.textContent='copied ✓'}catch(e){this.textContent='select it ↑'}setTimeout(()=>this.textContent='copy',1800)};
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
